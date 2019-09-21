@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:事件修饰符</title>
+
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<form action="demo1.html" method="post" onsubmit="return chekForm()">
+				<input type="submit" value="传统提交">
+			</form>
+		</div>
+
+		<div id="app2">
+			<form action="demo1.html" method="post" @submit.prevent>
+				<input type="submit" value="提交">
+			</form>
+		</div>
+	</body>
+	<script>
+		// 传统js
+		function chekForm() {
+			//表单验证必须有一个明确的boolean类型返回值
+			//在应用验证方法时必须加上return方法名称
+			alert("阻止提交")
+			return false;
+		}
+
+		new Vue({
+			el:"#app2"
+		});
+	</script>
+
+</html>
